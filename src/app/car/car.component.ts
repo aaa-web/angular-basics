@@ -8,9 +8,14 @@ import { Car } from "./car.model";
 })
 export class CarComponent implements OnInit {
 
-  constructor() { }
+  car: Car;
+
+  constructor() {
+    this.car = new Car("","","","");
+  }
 
   ngOnInit() {
+    
   }
 
 }

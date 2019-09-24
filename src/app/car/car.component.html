@@ -1,10 +1,26 @@
-<form action="" #car_form="ngForm">
-    <label for="carModel">Car Model</label>
-    <input type="text" id="carModel">
+<h2>Car component</h2>
+<br>
 
-    <label for="carYear">Year</label>
-    <input type="text" id="carYear">
+<form #carForm="ngForm">
+    <p>
+        <label for="model">Car Model: </label>
+        <input type="text" name="model" [(ngModel)]="car.model">
+    </p>
 
-    <label for="carYear">Year</label>
-    <input type="text" id="carYear">
+    <p>
+        <label for="year">Year: </label>
+        <input type="text" name="year" [(ngModel)]="car.year">
+    </p>
+
+    <p>
+        <label for="color">Year: </label>
+        <input type="text" name="color" [(ngModel)]="car.color">
+    </p>
+
+    <p>
+        <label for="horsePower">Color: </label>
+        <input type="text" name="horsePower" [(ngModel)]="car.horsePower">
+    </p>
+
+    <input type="submit" value="- Save -">
 </form>
