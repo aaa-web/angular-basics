@@ -1,7 +1,7 @@
 <h2>Car component</h2>
 <br>
 
-<form #carForm="ngForm">
+<form #carForm="ngForm" (ngSubmit)="onSubmit()">
     <p>
         <label for="model">Car Model: </label>
         <input type="text" name="model" #model="ngModel" [(ngModel)]="car.model" required>
@@ -13,14 +13,18 @@
     </p>
 
     <p>
-        <label for="color">Year: </label>
+        <label for="color">Color: </label>
         <input type="text" name="color" #color="ngModel" [(ngModel)]="car.color" required>
     </p>
 
     <p>
-        <label for="horsePower">Color: </label>
+        <label for="horsePower">Horse Power: </label>
         <input type="text" name="horsePower" #horsePower="ngModel" [(ngModel)]="car.horsePower" required>
     </p>
 
     <input type="submit" value="- Save -">
 </form>
+<br>
+<li *ngFor="let c of carArray">
+    <ul></ul>
+</li>
