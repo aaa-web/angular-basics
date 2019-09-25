@@ -4,22 +4,22 @@
 <form #carForm="ngForm">
     <p>
         <label for="model">Car Model: </label>
-        <input type="text" name="model" [(ngModel)]="car.model">
+        <input type="text" name="model" #model="ngModel" [(ngModel)]="car.model" required>
     </p>
 
     <p>
         <label for="year">Year: </label>
-        <input type="text" name="year" [(ngModel)]="car.year">
+        <input type="text" name="year" #year="ngModel" [(ngModel)]="car.year" required>
     </p>
 
     <p>
         <label for="color">Year: </label>
-        <input type="text" name="color" [(ngModel)]="car.color">
+        <input type="text" name="color" #color="ngModel" [(ngModel)]="car.color" required>
     </p>
 
     <p>
         <label for="horsePower">Color: </label>
-        <input type="text" name="horsePower" [(ngModel)]="car.horsePower">
+        <input type="text" name="horsePower" #horsePower="ngModel" [(ngModel)]="car.horsePower" required>
     </p>
 
     <input type="submit" value="- Save -">
