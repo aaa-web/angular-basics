@@ -1,8 +1,8 @@
 export class Car {
     constructor(
-        model: string,
-        year: string,
-        color: string,
-        horsePower: string
+        public model: string,
+        public year: string,
+        public color: string,
+        public liters: string
     ){}
 }

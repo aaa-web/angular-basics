@@ -8,11 +8,15 @@ import { Car } from "./car.model";
 })
 export class CarComponent implements OnInit {
 
-  car: Car;
-  carArray: Array<Car> = new Array;
+  public car: Car;
+  carArray: Array<Car>;
 
   constructor() {
     this.car = new Car("","","","");
+    this.carArray = [
+      new Car("Corsa","1996","Red","1.2"),
+      new Car("Sandero","1027","Blue","1.8")
+    ];
   }
 
   addCar() {
@@ -20,11 +24,11 @@ export class CarComponent implements OnInit {
   }
 
   ngOnInit() {
-    
+     
   }
   
   onSubmit() {
     // this.addCar();
-    console.log(this.car);
+    this.carArray.push(this.car);
   }
 }

@@ -1,30 +1,53 @@
-<h2>Car component</h2>
+
+
+<mat-card class="example-card">
+    <mat-card-header>
+        <mat-card-title>Car component</mat-card-title>
+        <mat-card-subtitle>Basic Angular Form</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <form #carForm="ngForm" (ngSubmit)="onSubmit()">
+            <p>
+                <label for="model">Car Model: </label>
+                <input type="text" name="model" #model="ngModel" [(ngModel)]="car.model" required>
+                <span class="error" *ngIf="model.touched && !model.valid">Invalid value :(</span>
+            </p>
+        
+            <p>
+                <label for="year">Year: </label>
+                <input type="text" name="year" #year="ngModel" [(ngModel)]="car.year" 
+                required pattern="[0-9]{4}">
+                <span class="error" *ngIf="year.touched && !year.valid">Invalid value :(</span>
+            </p>
+        
+            <p>
+                <label for="color">Color: </label>
+                <input type="text" name="color" #color="ngModel" [(ngModel)]="car.color" 
+                required pattern="[a-zA-Z#]+">
+                <span class="error" *ngIf="color.touched && !color.valid">Invalid value :(</span>
+            </p>
+        
+            <p>
+                <label for="liters">Liters: </label>
+                <input type="text" name="liters" #liters="ngModel" [(ngModel)]="car.liters" 
+                required pattern="(^[0-9]\.[0-9]){1}$">
+                <span class="error" *ngIf="liters.touched && !liters.valid">Invalid value :(</span>
+            </p>
+        
+            <input type="submit" value="- Save -" [disabled]="!carForm.form.valid">
+        </form>        
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-button>LIKE</button>
+        <button mat-button>SHARE</button>
+    </mat-card-actions>
+</mat-card>
+<div class="listado" >
+    <h4>Car List</h4>
+    <ul>
+        <li *ngFor="let carItem of carArray">
+            {{carItem.model}} - {{carItem.year}} - {{carItem.color}} - {{carItem.liters}}        
+        </li>
+    </ul>
+</div>
 <br>
-
-<form #carForm="ngForm" (ngSubmit)="onSubmit()">
-    <p>
-        <label for="model">Car Model: </label>
-        <input type="text" name="model" #model="ngModel" [(ngModel)]="car.model" required>
-    </p>
-
-    <p>
-        <label for="year">Year: </label>
-        <input type="text" name="year" #year="ngModel" [(ngModel)]="car.year" required>
-    </p>
-
-    <p>
-        <label for="color">Color: </label>
-        <input type="text" name="color" #color="ngModel" [(ngModel)]="car.color" required>
-    </p>
-
-    <p>
-        <label for="horsePower">Horse Power: </label>
-        <input type="text" name="horsePower" #horsePower="ngModel" [(ngModel)]="car.horsePower" required>
-    </p>
-
-    <input type="submit" value="- Save -">
-</form>
-<br>
-<li *ngFor="let c of carArray">
-    <ul></ul>
-</li>

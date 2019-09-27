@@ -1,0 +1,28 @@
+
+div {
+  float: left;
+}
+
+form {
+  width: 200px;
+}
+
+input[type="text"], span {
+  display: block;
+  width: 100%;
+}
+
+.error {
+  color: brown;
+  margin: 10px 0 0 10px;
+}
+
+.listado {
+  margin-left:  30px;
+}
+
+.example-card {
+    max-width: 600px;
+    float: left;
+    margin: 10px 20px;
+  }
