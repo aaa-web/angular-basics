@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Car } from "./car.model";
+import { RequestService } from "../services/request.service";
 
 @Component({
   selector: 'app-car',
@@ -11,24 +12,27 @@ export class CarComponent implements OnInit {
   public car: Car;
   carArray: Array<Car>;
 
-  constructor() {
+  constructor(public requestService: RequestService) {
+    
     this.car = new Car("","","","");
-    this.carArray = [
-      new Car("Corsa","1996","Red","1.2"),
-      new Car("Sandero","1027","Blue","1.8")
-    ];
+  }
+  
+  ngOnInit() {
+     this.loadCars();
   }
 
   addCar() {
     this.carArray.push(this.car);
   }
-
-  ngOnInit() {
-     
-  }
   
   onSubmit() {
     // this.addCar();
     this.carArray.push(this.car);
+  }
+
+  loadCars() {
+    return this.requestService.getCars().subscribe((data:[]) => {
+      this.carArray = data;
+    })
   }
 }

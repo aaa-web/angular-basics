@@ -7,13 +7,12 @@ import { HttpClient } from "@angular/common/http";
 export class RequestService {
 
   constructor(private http: HttpClient) { }
-
   
   urlAllCars = 'https://my-json-server.typicode.com/aaa-web/demo-db';
   
   getCars() {
     return this
     .http
-    .get(`${this.urlAllCars}`);
+    .get(`${this.urlAllCars}/cars`);
   }
 }
