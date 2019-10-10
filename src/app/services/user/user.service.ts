@@ -17,4 +17,8 @@ export class UserService {
     return this.http
     .get(requestUrl)
   }
+
+  getAuth() {
+    return true;
+  }
 }

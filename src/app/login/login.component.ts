@@ -9,17 +9,24 @@ import { User } from '../services/user/user.model';
 })
 export class LoginComponent implements OnInit {
 
+  public user: User;
+
   constructor(public loginService: LoginService) { 
-    
+    this.user = new User("","","","");
   }
 
   ngOnInit() {
-    this.login();
+    // this.login();
   }
 
   login(){
-    let user: User = new User("", "andrec230@gmail.com", "123","");
-    this.loginService.getLogin(user);
+    console.log(this.user);
+    this.loginService.getLogin(this.user);
+  }
+
+  logged(){
+    console.log("logged: ", this.loginService.getLogged());
+    console.log("loggedAux: ", this.loginService.getLoggedAux());
   }
 
 }

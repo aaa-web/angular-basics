@@ -8,10 +8,11 @@ import { User } from '../user/user.model';
 })
 export class LoginService {
   
-  public logged: boolean;  
+  public logged: boolean; 
+  public loggedAux: any = {}; 
 
   constructor(public userService: UserService) {    
-    this.logged = false;
+    //this.logged = false;
   }
 
   getAllUser() {
@@ -19,20 +20,29 @@ export class LoginService {
   }
 
   getLogin(user: User) {
-    var logged = false;
+    // this.logged = false;
     this.getAllUser().subscribe((data:Array<User>) => {
       data.forEach(element => {
-        if (element.name === user.name && element.password === user.password) {
-          logged = true;
+        if (element.name === user.name && element.password === user.password) {          
+          this.logged = true;
+          this.loggedAux.logged=true;
+          console.log("logged getLogin", this.logged);
+          
         } 
+        return this.logged;
       });
-      return logged;
     });
     
   }
 
   getLogged(){
-    return this.logged;
+    console.log(this.logged);
+    return this.logged;    
+  }
+
+  getLoggedAux(){
+    console.log(this.loggedAux);
+    return this.loggedAux;    
   }
 
 }

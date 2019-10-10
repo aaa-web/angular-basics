@@ -3,18 +3,21 @@
         <mat-card-content>
             <form class="my-form">
                 <mat-form-field class="full-width">
-                    <mat-label>Email</mat-label>
-                    <input matInput placeHolder="Email" name="email">
+                    <mat-label>Username/Email</mat-label>
+                    <input matInput placeHolder="Username" name="email" [(ngModel)]="user.name" required>
                 </mat-form-field>
                 <mat-form-field class="full-width">
                     <mat-label>Password</mat-label>
-                    <input matInput placeHolder="Password" name="password">
+                    <input matInput placeHolder="Password" name="password" [(ngModel)]="user.password" required>
                 </mat-form-field>
             </form>
         </mat-card-content>
         <mat-card-actions>
             <div class="right-align">
                 <button mat-raised-button (click)="login()" color="primary">LOGIN</button>
+            </div>
+            <div class="right-align">
+                <button mat-raised-button (click)="logged()" color="primary">test</button>
             </div>
         </mat-card-actions>
     </mat-card>
