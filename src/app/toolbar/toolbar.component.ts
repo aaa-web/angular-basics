@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../services/login/login.service';
 
 @Component({
   selector: 'app-toolbar',
@@ -11,13 +12,18 @@ export class ToolbarComponent implements OnInit {
   appDescription: string;
   logged: boolean;  
 
-  constructor() { 
+  constructor(public loginService: LoginService) { 
     this.appName = "ActiviTor";
-    this.appDescription = "Activity recording app";
-    this.logged = true;
+    this.appDescription = "Activity recording app";    
   }
 
   ngOnInit() {
+    this.logged = this.getLogged();
+    // this.logged = true;
+  }
+
+  getLogged() {
+    return this.loginService.getLogged();
   }
 
 }

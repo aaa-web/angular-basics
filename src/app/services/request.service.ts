@@ -13,6 +13,6 @@ export class RequestService {
   getCars() {
     return this
     .http
-    .get(`${this.urlAllCars}/cars`);
+    .get(`${this.urlAllCars}/users`);
   }
 }
